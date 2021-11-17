@@ -1,0 +1,44 @@
+* {
+}
+
+.headerContainer {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding-left: 20px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+
+  background: #08c8f6;
+  /* background-color: #24252a; */
+  /* color: white; */
+}
+.navBar {
+  margin-right: 200px;
+  padding: 10px;
+}
+.navBar_link1 {
+  margin-right: 10px;
+}
+.HeaderButton {
+  background-color: #08c8f6;
+  color: white;
+  border: none;
+  text-decoration: none;
+
+  margin-right: 20px;
+  padding: 0;
+}
+
+.HeaderButton:hover {
+  background: none;
+  text-decoration: none;
+  color: #6d6d6e;
+}
+
+.HeaderButton:active {
+  background: none;
+  color: #6d6d6e;
+}

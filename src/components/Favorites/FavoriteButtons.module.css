@@ -1,0 +1,10 @@
+.Favorite {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+}
+.Favorite button {
+  margin-left: 20px;
+}

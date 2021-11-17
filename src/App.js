@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Switch, Route, Redirect } from "react-router-dom";
+import MainPage from "./components/MainPage/MainPage";
+import Header from "./components/Header";
+import Favorites from "./components/Favorites/Favorites";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 function App() {
+  const favorites = useSelector((state) => state.favorite);
+  const celsiusTransfer = (fahrenheit) => {
+    let celsius;
+    celsius = ((fahrenheit - 32) * 5) / 9;
+    return Math.floor(celsius);
+  };
+  const toastError = () => {
+    return toast.error("You dont have any favorites!");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/home" />
+        </Route>
+        <Route path="/home" component={MainPage} />
+        {favorites.length <= 0 ? (
+          toastError() && <Redirect to="/home" exact></Redirect>
+        ) : (
+          <Route path="/favorites">
+            <Favorites celsiusTransfer={celsiusTransfer} />
+          </Route>
+        )}
+      </Switch>
+    </>
   );
 }
 

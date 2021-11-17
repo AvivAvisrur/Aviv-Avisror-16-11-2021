@@ -1,0 +1,15 @@
+.currentWeather {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.currentWeatherDetails {
+  display: flex;
+  flex-direction: column;
+}
+.imgContainer {
+  display: flex;
+}
